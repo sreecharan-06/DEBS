@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { imgurl, callApi, apibaseurl } from './lib';
+import { imgurl, callApi, apibaseurl, appPath } from './lib';
 import './App.css';
 import ProgressBar from './components/ProgressBar.jsx';
 
@@ -97,7 +97,7 @@ const App = () => {
             alert(res.message);
         else{
             localStorage.setItem("token", res.jwt);     
-            window.location.replace("/home");
+            window.location.replace(appPath("home"));
         }  
         setIsProgress(false);
     }

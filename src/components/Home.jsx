@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
-import { apibaseurl, callApi, imgurl } from '../lib';
+import { apibaseurl, appPath, callApi, imgurl } from '../lib';
 import ProgressBar from './ProgressBar';
 import Profile from './Profile';
 import UserManager from './UserManager';
@@ -30,14 +30,14 @@ const Home = () => {
             return;
         setFullname(res.fullname);
         setMenuList(res.menulist);
-        const defaultMenu = res.menulist?.find((m) => m.mid == 5) || res.menulist?.find((m) => m.mid == 4);
+        const defaultMenu = res.menulist?.find((m) => m.mid == 4) || res.menulist?.find((m) => m.mid == 5);
         if(defaultMenu)
             loadModule(defaultMenu.mid);
     }
 
     function logout(){
         localStorage.clear();
-        window.location.replace("/");
+        window.location.replace(appPath());
     }
 
     function loadModule(mid){
@@ -54,10 +54,10 @@ const Home = () => {
     return (
         <div className='home'>
             <div className='home-header'>
-                <img src="/logo.png" alt='' />
+                <img src={imgurl + "logo.png"} alt='' />
                 <div className='info'>
                     {fullname}
-                    <img src="/shutdown.png" alt='' onClick={()=>logout()} />
+                    <img src={imgurl + "shutdown.png"} alt='' onClick={()=>logout()} />
                 </div>
             </div>
             <div className='home-workspace'>

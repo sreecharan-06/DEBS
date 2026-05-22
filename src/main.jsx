@@ -5,7 +5,7 @@ import App from './App.jsx';
 import Home from './components/Home.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <Routes>
         <Route path='/' element={<App/>} />
         <Route path='/home' element={<Home/>} />
