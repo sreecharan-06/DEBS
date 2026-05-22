@@ -3,11 +3,19 @@ export const imgurl = import.meta.env.BASE_URL;
 export const isDemoMode = window.location.hostname.endsWith("github.io");
 
 const demoUsers = [
-    { id: 6, fullname: "anu", phone: "2521432246", email: "anu12@gmail.com" },
-    { id: 7, fullname: "deepthi", phone: "8125212246", email: "deepthi1@gmail.com" },
-    { id: 8, fullname: "deepthi", phone: "8125212246", email: "deepthi07@gmail.com" },
-    { id: 9, fullname: "ravi", phone: "2428252623", email: "ravi07@gmail.com" },
-    { id: 10, fullname: "hananya", phone: "2121212121", email: "hananya07@gmail.com" }
+    { id: 5, fullname: "Sree Charan", phone: "6301282405", email: "sreecharan5@gmail.com", password: "Sree@2005", role: 3, status: 1 },
+    { id: 7, fullname: "Sree Charan", phone: "6301282407", email: "sreecharan7@gmail.com", password: "Sree@2007", role: 3, status: 1 },
+    { id: 6, fullname: "sree charan", phone: "6301282406", email: "charan6@kluniversity.in", password: "Charan@2006", role: 1, status: 3 },
+    { id: 2, fullname: "Charan", phone: "6301282402", email: "charan2@gmail.com", password: "Charan@2002", role: 1, status: 1 },
+    { id: 4, fullname: "Charan", phone: "6301282404", email: "charan4@gmail.com", password: "Charan@2004", role: 2, status: 1 },
+    { id: 3, fullname: "Charan", phone: "6301282403", email: "sreecharan3@gmail.com", password: "Sree@2003", role: 3, status: 1 },
+    { id: 1, fullname: "sree charan", phone: "6301282401", email: "sreecharan1@gmail.com", password: "Sree@2001", role: 3, status: 1 }
+];
+
+const demoRoles = [
+    { role: 1, rolename: "User" },
+    { role: 2, rolename: "Task Manager" },
+    { role: 3, rolename: "Admin" }
 ];
 
 function demoResponse(apiUrl, jsonData) {
@@ -37,9 +45,9 @@ function demoResponse(apiUrl, jsonData) {
         return {
             code: 200,
             user: {
-                fullname: "Admin User",
-                phone: "9876543210",
-                email: "admin@gmail.com",
+                fullname: "Sree Charan",
+                phone: "6301282405",
+                email: "sreecharan5@gmail.com",
                 role: 3
             }
         };
@@ -49,14 +57,10 @@ function demoResponse(apiUrl, jsonData) {
         return {
             code: 200,
             page: 2,
-            size: 5,
-            totalpages: 3,
+            size: 7,
+            totalpages: 1,
             users: demoUsers,
-            roles: [
-                { role: 1, rolename: "Users" },
-                { role: 2, rolename: "Task Manager" },
-                { role: 3, rolename: "Admin" }
-            ]
+            roles: demoRoles
         };
     }
 
