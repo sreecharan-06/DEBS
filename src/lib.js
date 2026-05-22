@@ -74,7 +74,8 @@ function demoResponse(apiUrl, jsonData) {
 
 export function appPath(path = "") {
     const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-    return `${base}${path.replace(/^\//, "")}`;
+    const cleanPath = path.replace(/^\//, "");
+    return `${base}#/${cleanPath}`;
 }
 
 export function callApi(reqMethod, apiUrl, jsonData, formData, responseHandler, jwtToken = "")
